@@ -5,7 +5,8 @@ const khodamInputs = document.querySelectorAll('#khodam input');
 //submit
 const output = document.querySelector('.output-container');
 const khodamContainer = document.querySelector('.form-container');
-const khodam = document.getElementById('khodam');
+const khodam = document.querySelector('.form-left');
+const khodamInput = document.getElementById ('khodam')
 const resetButton = document.getElementById('resetButton');
 const result = document.getElementById('hasil-khodam');
 const resultKhodam = document.getElementById('result');
@@ -14,6 +15,7 @@ const img = document.getElementById('img');
 const nextButton = document.getElementById('nextButton');
 const buttonDivs = document.getElementById('button');
 const alert1 = document.getElementById('alert1');
+const header1 = document.getElementById('header1');
 const alerthapus1 = document.getElementById('alerthapus1');
 const title1 = document.getElementById('title1');
 
@@ -124,16 +126,24 @@ submitButton.addEventListener('click', e => {
   } else {
   progressBar.style.width = "0%";  
   // Simulasi loading (misalnya, fetch data dari server)
+  // Store the input values in variables
+  const inputValues = {};
   khodamInputs.forEach(input => {
+    inputValues[input.name] = input.value;
     input.disabled = true;
   });
   setTimeout(() => {
     progressBar.style.transition = 'width 3s ease-in-out';
    progressBar.style.width = "100%";   
-    alert1.style.display = 'block';
+    alert1.style.display = 'flex';
     title1.style.display = 'none';  
     textContainer.style.display = 'none';  
     buttonDivs.style.display = 'none';
+    header1.style.display = 'none';
+    khodamInputs.forEach(input => {
+      input.style.display = 'none';
+    });
+    
     // Show loading indicator
     loadingIndicator.classList.add('loading-animation');
     loadingIndicator.style.display = 'flex';
@@ -141,7 +151,7 @@ submitButton.addEventListener('click', e => {
      cekKhodam(e);
                   //Success Warning
                   alert1.style.display = 'none';
-                  alert1.style.display = 'block';
+                  alert1.style.display = 'flex';
                     // Hide form 1 and show form 2
                     setTimeout(() => {
                       loadingIndicator.classList.remove('loading-animation');
@@ -149,8 +159,14 @@ submitButton.addEventListener('click', e => {
                       
                       // Hide form 1 and show form 2
                       khodam.classList.remove('show');
-                      khodam.style.display = 'none';
-                      result.classList.add('show');                      
+                      khodamContainer.style.display = 'none';
+                      output.style.display = 'flex';
+                      output.classList.add('show');   
+                      // Restore the input values
+                      khodamInputs.forEach(input => {
+                        input.value = inputValues[input.name];
+                        input.disabled = false;
+                      });
                     }, 1000); // Setelah 1 detik, tampilkan output
         
      

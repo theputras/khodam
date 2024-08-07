@@ -90,7 +90,7 @@ input ::placeholder {
    min-height: calc(100vh - 100px); /* adjust the value to push the footer down */
 }
 
-.container.form-container,.container.output-container {
+.container.form-container,.container.output-container{
   height: 100vh;
   width: 100%; /* add this to take up full width */
   max-width: 1200px; /* adjust the max-width to your liking */
@@ -98,7 +98,7 @@ input ::placeholder {
   padding: 20px; /* add some padding for better layout */
 }
 
-.form-container, .output-container, #error-message {
+.form-container, .output-container, #error-message{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -109,7 +109,7 @@ input ::placeholder {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 /* Add Bootstrap classes to center the sections */
-.form-container, .output-container {
+.form-container, .output-container{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -148,24 +148,16 @@ input ::placeholder {
 
 
 /* Transition effect */
-  .khodam, .hasil-khodam, .form-left, .form-right img{
+  .hasil-khodam, .form-left, .form-right img, .output-container{
     opacity: 0;
     transform: translateY(50%);
     transition: opacity 0.5s, transform 0.5s;
   }
   
-  .khodam.show, .hasil-khodam.show, .form-left.show, .form-right img.show{
+  .hasil-khodam.show, .form-left.show, .form-right img.show, .output-container.show {
     opacity: 1;
     transform: translateY(0);
   }
-
-
-#Formulir1.show, #Formulir2.show {
-
-  opacity: 1;
-  transform: translateY(0);
-}
-  
 .footer {
   opacity: 0;
   transition: opacity 0.5s; /* add transition effect */
@@ -281,7 +273,7 @@ input ::placeholder {
   color: #fff;
   
 }
-.form-container, .container {
+.form-container, .container{
   flex: 1;
 }
 footer {
@@ -357,7 +349,7 @@ color: #ffffff !important;
 }
 
 
-.hasil-khodam h2 {
+.output-container h2 {
 
   font-weight: 500;
   color: #ffffff;
@@ -585,7 +577,7 @@ input[type="number"] {
     border-radius: 20px;
 }
 
-.hasil-khodam {
+.output-container {
  padding: 25px;
  }
 
@@ -598,7 +590,7 @@ input[type="number"] {
     z-index: -1;
     }
 
-.form-left button, .form-left-title button, .hasil-khodam button{
+.form-left button, .form-left-title button, .output-container button{
     display: flex;
     align-items: center;    
     justify-content: center; /* Add this property */
@@ -794,7 +786,7 @@ input[type="number"] {
       margin: 10px;
     }
 
-    .form-container, .output-container {
+    .form-container, .output-container, .output-container {
       align-items: center;
       justify-content: center;
       padding: 10px;
@@ -865,7 +857,7 @@ input[type="number"] {
       margin: 10px;
     }
 
-    .form-container, .output-container {
+    .form-container, .output-container, .output-container {
       flex-direction: column;
       align-items: center;
       justify-content: center;
