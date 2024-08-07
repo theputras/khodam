@@ -20,7 +20,7 @@ const alerthapus1 = document.getElementById('alerthapus1');
 const title1 = document.getElementById('title1');
 
 
-
+window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
 
 //Reset form
     function resetForm(form) {
