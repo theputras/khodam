@@ -113,7 +113,12 @@ input ::placeholder {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: column;  
+ min-height: 600px;
+}
+
+#alert1, #progressBar, .form-right{
+  align-items: center;
 }
 
 #resultKhodam {
@@ -289,7 +294,8 @@ footer {
   min-height: 0;
   max-width: 1200px; /* adjust the max-width to your liking */
   margin: 0 auto;
-  padding:0 0 0 20px;
+  position: relative;
+  top: 150px;
 }
 .logo-footer {
 display: none;
@@ -579,6 +585,7 @@ input[type="number"] {
 
 .output-container {
  padding: 25px;
+ gap: 15px;
  }
 
 .buttonID, .form-left-title .buttonID {
@@ -787,7 +794,7 @@ input[type="number"] {
     }
 
     .form-container, .output-container, .output-container {
-      align-items: center;
+      align-items:flex-start;
       justify-content: center;
       padding: 10px;
     }
@@ -859,9 +866,9 @@ input[type="number"] {
 
     .form-container, .output-container, .output-container {
       flex-direction: column;
-      align-items: center;
+      align-items:flex-start;
       justify-content: center;
-      padding: 5px;
+      padding: 10px;
     }
     .form-left, .form-right {
       flex: 1;
