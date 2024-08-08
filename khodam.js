@@ -49,7 +49,7 @@ const errorElement = document.getElementById('error-message');
 function handleError(error) {
   
   errorElement.style.display = 'flex';
-  errorElement.textContent = 'Website Error: ' + error.message;
+  errorElement.textContent = 'Website Error: ' + error.message + " Cek konsol";
   khodamContainer.style.display = 'none';
 }
 
@@ -95,10 +95,6 @@ document.querySelectorAll('.btn-submit, .form-left-title .btn-submit, .btn-reset
 // Initialize the forms
 khodam.classList.add('show');
 //footer.classList.add('show');
-window.addEventListener('beforeunload', () => {
-  localStorage.removeItem('form1Data');
-  localStorage.removeItem('form2Data');
-});
 
 
 
@@ -132,9 +128,11 @@ submitButton.addEventListener('click', e => {
     inputValues[input.name] = input.value;
     input.disabled = true;
   });
+  
   setTimeout(() => {
     progressBar.style.transition = 'width 3s ease-in-out';
-   progressBar.style.width = "100%";   
+    progressBar.style.width = "100%";
+    
     alert1.style.display = 'flex';
     title1.style.display = 'none';  
     textContainer.style.display = 'none';  
@@ -143,41 +141,38 @@ submitButton.addEventListener('click', e => {
     khodamInputs.forEach(input => {
       input.style.display = 'none';
     });
-    
+  
     // Show loading indicator
     loadingIndicator.classList.add('loading-animation');
     loadingIndicator.style.display = 'flex';
-     // Run the cekKhodam function
-     cekKhodam(e);
-                  //Success Warning
-                  alert1.style.display = 'none';
-                  alert1.style.display = 'flex';
-                    // Hide form 1 and show form 2
-                    setTimeout(() => {
-                      loadingIndicator.classList.remove('loading-animation');
-                      loadingIndicator.style.display = 'none';
-                      
-                      // Hide form 1 and show form 2
-                      khodam.classList.remove('show');
-                      khodamContainer.style.display = 'none';
-                      output.style.display = 'flex';
-                      output.classList.add('show');   
-                      // Restore the input values
-                      khodamInputs.forEach(input => {
-                        input.value = inputValues[input.name];
-                        input.disabled = false;
-                      });
-                    }, 1000); // Setelah 1 detik, tampilkan output
-        
-     
-
-    setTimeout(() => {
-      progressBar.style.transition = 'width 3s ease-in-out';
-    progressBar.style.display ='none';
-    // Submit combined data to both URLs
   
-    }, 3000); // Setelah 3 detik, sembunyikan progress bar
-  }, 500  ); // Setelah 1 detik, perbarui progress bar ke 100%
+    // Run the cekKhodam function
+    cekKhodam(e);
+  
+    // Wait for 3 seconds before hiding the loading indicator
+    setTimeout(() => {
+      progressBar.style.display = 'none';
+      loadingIndicator.classList.remove('loading-animation');
+      loadingIndicator.style.display = 'none';
+      
+      
+      // Hide form 1 and show form 2
+      khodam.classList.remove('show');
+      khodamContainer.style.display = 'none';      
+      output.classList.add('show');
+      output.style.display = 'flex';
+      
+      
+  
+      // Restore the input values
+      khodamInputs.forEach(input => {
+        input.value = inputValues[input.name];
+        input.disabled = false;
+      });
+    }, 3000); // Wait for 3 seconds
+  
+    
+  }, 500); // Wait for 1 second before starting the loading animation
   }
   
 

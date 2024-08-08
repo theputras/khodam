@@ -26,8 +26,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-  min-height: 10vh;
-
+  min-height: 600px;
+  font-weight: 800;
+  text-align: center;
 }
 
 html {
@@ -98,15 +99,15 @@ input ::placeholder {
   padding: 20px; /* add some padding for better layout */
 }
 
-.form-container, .output-container, #error-message{
+.form-container, .output-container{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 51px;
+  padding: 20px;  
+  max-width: 100%; /* make the container responsive */
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 /* Add Bootstrap classes to center the sections */
 .form-container, .output-container{
@@ -114,7 +115,7 @@ input ::placeholder {
   justify-content: center;
   align-items: center;
   flex-direction: column;  
- min-height: 600px;
+ min-height: 700px;
 }
 
 #alert1, #progressBar, .form-right{
@@ -128,6 +129,11 @@ input ::placeholder {
   font-style: normal;
 }
 
+#khodam, #resultKhodam{
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
 .icon .img-bg {
     height: 200px;
     width:fit-content;
@@ -135,10 +141,11 @@ input ::placeholder {
 }
 
 .form-left{
-
-    display: flex;
-    flex-direction: column;
-    align-items: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto; /* add this to center the section horizontally */
     gap: 20px;
 }
 
@@ -153,16 +160,25 @@ input ::placeholder {
 
 
 /* Transition effect */
-  .hasil-khodam, .form-left, .form-right img, .output-container{
+  .hasil-khodam, .form-left, .form-right img{
     opacity: 0;
     transform: translateY(50%);
     transition: opacity 0.5s, transform 0.5s;
   }
   
-  .hasil-khodam.show, .form-left.show, .form-right img.show, .output-container.show {
+  .hasil-khodam.show, .form-left.show, .form-right img.show{
     opacity: 1;
     transform: translateY(0);
   }
+  
+.output-container{
+  opacity: 0;
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.output-container.show {
+  opacity: 1;
+}
 .footer {
   opacity: 0;
   transition: opacity 0.5s; /* add transition effect */
@@ -218,10 +234,10 @@ input ::placeholder {
 }
 
 #loadingIndicator svg, #loadingIndicator2 svg {
-  width: 150px; /* updated width and height */
-  height: 150px;
-  position: relative; /* added position: relative */
-  animation: rotate 2s linear infinite; /* added animation */
+  width: 80px;
+  height: 80px;
+  position: relative;
+  animation: rotate 2s linear infinite;
 }
 
 @keyframes rotate {
@@ -234,30 +250,30 @@ input ::placeholder {
 }
 
 #loadingIndicator svg circle, #loadingIndicator2 svg circle {
-  width: 92px;
-  height: 92px;
-  cx: 70; /* updated cx and cy */
-  cy: 70;
-  r: 70; /* updated radius */
+  width: 80px;
+  height: 80px;
+  cx: 40;
+  cy: 40;
+  r: 35;
   fill: none;
-  stroke-width: 10;
-  stroke: #015eea; /* updated stroke color */
+  stroke-width: 6;
+  stroke: #015eea;
   stroke-linecap: round;
-  transform: translate(5px, 5px); /* added transform */
-  stroke-dasharray: 400; /* added stroke-dasharray */
-  stroke-dashoffset: 400; /* added stroke-dashoffset */
-  animation: animate 4s linear infinite; /* added animation */
+  transform: translate(0, 0); /* removed translate */
+  stroke-dasharray: 240; /* updated stroke-dasharray */
+  stroke-dashoffset: 240; /* updated stroke-dashoffset */
+  animation: animate 4s linear infinite;
 }
 
 @keyframes animate {
   0%, 100% {
-    stroke-dashoffset: 440;
+    stroke-dashoffset: 360;
   }
   50% {
     stroke-dashoffset: 0;
   }
   50.1% {
-    stroke-dashoffset: 880;
+    stroke-dashoffset: 720;
   }
 }
 .main-container {
@@ -294,6 +310,7 @@ footer {
   min-height: 0;
   max-width: 1200px; /* adjust the max-width to your liking */
   margin: 0 auto;
+  padding:0 0 0 20px;
   position: relative;
   top: 150px;
 }
@@ -586,6 +603,11 @@ input[type="number"] {
 .output-container {
  padding: 25px;
  gap: 15px;
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto; /* add this to center the section horizontally */
  }
 
 .buttonID, .form-left-title .buttonID {
@@ -797,6 +819,8 @@ input[type="number"] {
       align-items:flex-start;
       justify-content: center;
       padding: 10px;
+      width: 90%; /* reduce the width of the container on smaller screens */
+    margin: 0 auto; /* center the container on smaller screens */
     }
     #text-container {
       text-align: left;
@@ -815,7 +839,9 @@ input[type="number"] {
         align-items: center;
         justify-content: space-evenly;
     }
-
+    .justify-content-center{
+      padding: 15px;
+     }
     .img-bg{
         display: none;
     }

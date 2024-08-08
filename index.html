@@ -15,7 +15,7 @@
   <div class="container">
 
     <div class="row justify-content-center">
-      <div id="error-message" style="display: none;"></div>
+      <div id="error-message"></div>
       <section id="form" class="form-container" >
         
         
@@ -30,6 +30,12 @@
                 <p class="fs-16" id="title1">Silakan masukkan nama kamu untuk di cek khodamnya</p>
                 <p class="fs-16" id="alerthapus1">Berhasil dihapus.</p>
                 <hr id="progressBar">
+                
+                <div id="loadingIndicator" style="display: none;">
+                  <svg>
+                      <circle cx="70" cy="70" r="70"></circle>
+                  </svg>
+              </div>
               </div>
              
               <input type="text" id="search" placeholder="Nama kamu" class="form-input" required>
@@ -41,17 +47,6 @@
             
             
             
-          <div class="form-right">
-                <div class="img-wrapper">
-                  
-                  <div id="loadingIndicator" style="display: none;">
-                    <svg>
-                        <circle cx="70" cy="70" r="70"></circle>
-                    </svg>
-                </div>
-                </div>
-                  
-                </div>
                 
                 <div class="footer-container">
                   <p>Website created by <a href="https://theputras.github.io/">THE PUTRAS</a></p>
@@ -61,7 +56,6 @@
               <section id="hasil-khodam" class="output-container" style="display: none;">
                   <h2 id="result"></h2>
                   <button class="btn btn-secondary btn-submit" type="button" id="resetButton"><p>Cek Lagi</p></button>
-                  
                   
                 <div class="footer-container">
                   <p>Website created by <a href="https://theputras.github.io/">THE PUTRAS</a></p>
